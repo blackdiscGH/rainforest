@@ -7,7 +7,7 @@
 <% @products.each do |product| %>
 
 <p><%= product.name %>, <%= product.description %> ,
-<%= product.formatted_price %>  <a href="/products/<%=product.id%>/edit">Edit</a>  <a href="/products/<%=product.id%>">Delete</a> </p>
+<%= product.formatted_price %>  <a href="/products/<%=product.id%>">View</a> <a href="/products/<%=product.id%>/edit">Edit</a>  <a href="/products/<%=product.id%>">Delete</a> </p>
 
 
 <% end %>
