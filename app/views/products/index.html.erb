@@ -1,11 +1,13 @@
-<h1>Products#index</h1>
-
+<h1>List of Products</h1>
 
 <%= link_to "New Product", "/products/new" %>
 
-<% @products.each do |product| %>
-
-<p><%= product.name %>, <%= product.description %> ,
-<%= product.formatted_price %>  <a href="/products/<%=product.id%>">View</a> <a href="/products/<%=product.id%>/edit">Edit</a>  <a href="/products/<%=product.id%>">Delete</a> </p>
-
+<%= form_tag products_path, method: :get, authentication: false, id: 'search-form' do %>
+	<%= text_field_tag :search, params[:search] %>
+	<%= submit_tag "Search" %>
 <% end %>
+
+<div id="products">
+  <%= render @products %>
+</div> 
+
