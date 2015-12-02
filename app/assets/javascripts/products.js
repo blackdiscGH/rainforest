@@ -49,10 +49,14 @@ $(document).on('ready page:load', function() {
 	}); // end of search-form.submit function
 
   $(window).scroll(function() {
-     if ($(window).scrollTop() > $(document).height() - $(window).height() - 50) {
-      console.log($(document).height());
-      console.log($(window).height());
-      alert('near bottom');
+     var url = $('.pagination span.next').children().attr('href');
+     if (url && $(window).scrollTop() > $(document).height() - $(window).height() - 50) {
+      // console.log($(document).height());
+      // console.log($(window).height());
+      console.log($('.pagination span.next').children().attr('href'));
+      // $.getScript($('.pagination span.next').children().attr('href'));
+      $('.pagination').text("Fetching more products...");
+      return $.getScript(url);
      }
    }); // end of window.scroll function
 
