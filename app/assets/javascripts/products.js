@@ -43,16 +43,18 @@
 
 $(document).on('ready page:load', function() {
 	$('#search-form').submit(function(event) {
-		e.preventDefault();
+		event.preventDefault();
 		var searchValue = $('#search').val();
+    $.getScript('/products?search=' + searchValue);
+	}); // end of search-form.submit function
 
-		// inside the submit event callback, replace the $.ajax portion with the following
-    	// inside the submit event callback, replace the $.get portion with the following
-    	$.getScript('/products?search=' + searchValue);
-      	   .done(function(data){
-           		console.log(data);
-           		$('#products').html(data);
-      		});
-	});
-});
+  $(window).scroll(function() {
+     if ($(window).scrollTop() > $(document).height() - $(window).height() - 50) {
+      console.log($(document).height());
+      console.log($(window).height());
+      alert('near bottom');
+     }
+   }); // end of window.scroll function
+
+}); // end of ready page:load function
 

@@ -6,15 +6,17 @@ class ProductsController < ApplicationController
   	 Product.all
     end
 
-  respond_to do |format|
-    format.html
-    format.js
-    # if request.xhr?
-    #   render @products
-    # else
-    #   render :index
-    # end 
-  end
+    @products = @products.order('products.created_at DESC').page(params[:page])
+
+    respond_to do |format|
+      format.html
+      format.js
+      # if request.xhr?
+      #   render @products
+      # else
+      #   render :index
+      # end 
+    end
 end 
 
   def show
