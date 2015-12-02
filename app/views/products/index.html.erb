@@ -7,7 +7,21 @@
 	<%= submit_tag "Search" %>
 <% end %>
 
+<div>
+		<table border="1" style="width:100%">
+		<tr>
+			<th>Name</th>
+    		<th>Description</th> 
+    		<th>Price</th>
+    		<th colspan=3>Actions</th>
+		</tr>
+
 <div id="products">
   <%= render @products %>
 </div> 
 
+		</table>
+	</div>
+
+<%#  @products.each do |product| %>
+<%#    render product %>
