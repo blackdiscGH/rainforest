@@ -5,7 +5,7 @@
 <!-- renders a helpful message with numbers of displayed vs. total entries -->
 <h1><small><%= page_entries_info @products %></small></h1>
 
-<%= form_tag products_path, method: :get, authentication: false, id: 'search-form' do %>
+<%= form_tag products_path, method: :get, id: 'search-form' do %>
 	<%= text_field_tag :search, params[:search] %>
 	<%= submit_tag "Search" %>
 <% end %>

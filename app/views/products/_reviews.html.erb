@@ -1,0 +1,18 @@
+<div id="review-header">Reviews</div>
+  <div class="review">
+    <p>Reviews for <%= @product.name %></p>
+    <% @product.reviews.each do |review| %>
+      <div class="comment">
+        <%= review.comment %><br>
+      </div> <!-- comment -->
+      <% if review.user != nil %>
+        <div class="poster">
+          Posted by <%= review.user.name %>
+        </div> <!-- poster -->
+        <div class="date_comment_added">
+          Added on: <%= review.created_at %>
+        </div> <!-- date_comment_added -->
+      <% end %>
+    <% end %>
+  </div> <!-- review -->
+</div> <!-- review-header -->

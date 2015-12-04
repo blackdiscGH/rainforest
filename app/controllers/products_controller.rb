@@ -9,8 +9,8 @@ class ProductsController < ApplicationController
     @products = @products.order('products.created_at DESC').page(params[:page])
 
     respond_to do |format|
-      format.html
-      format.js
+      format.html # render index.html.erb
+      format.js # render index.html.js
       # if request.xhr?
       #   render @products
       # else
